@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import Navbar from './Navbar'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Home from './Home.';
+import FaceDetect from './FaceDetect'
+import HandDetect from './HandDetect'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route exact path='/facedetect' component={FaceDetect}/>
+          <Route exact path='/handdetect' component={HandDetect}/>
+        </Switch>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;
